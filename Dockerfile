@@ -1,4 +1,4 @@
-from archesproject/arches:master
+from benosteen/arches:latest
 USER root
 
 ## Mirroring default environment variables

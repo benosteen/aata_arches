@@ -78,20 +78,6 @@ services:
         - POSTGRES_USER=postgres
         - TZ=PST
 
-    pgadmin:
-      container_name: pgadmin
-      links:
-        - db:postgres
-      image: dpage/pgadmin4
-      volumes:
-        - pgadmin_data:/root/.pgadmin
-      ports:
-        - "5050:80"
-      environment:
-        - PGADMIN_DEFAULT_EMAIL=postgres
-        - PGADMIN_DEFAULT_PASSWORD=postgres
-      restart: unless-stopped
-
     elasticsearch:
       container_name: elasticsearch
       image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
