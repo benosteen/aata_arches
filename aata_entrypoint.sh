@@ -130,9 +130,11 @@ setup_aata() {
 	                          -ow=overwrite
 	echo
 
-	echo "Having to do a 'makemigrations' step as the master migrations are a little broken it seems"
+	echo "Having to work around the broken migrations"
 	python manage.py makemigrations
 	run_migrations
+	python manage.py widget unregister -n iiif-widget
+	python manage.py widget unregister -n csv-chart-widget
 
 	install_yarn_components
 }
@@ -183,7 +185,8 @@ install_yarn_components() {
 	echo "----- INSTALLING YARN COMPONENTS -----"
 	echo ""
 	cd_yarn_folder
-	yarn install
+	echo "Installing Yarn components to ${YARN_MODULES_FOLDER}"
+	yarn install --modules-folder ${YARN_MODULES_FOLDER}
 }
 
 graphs_exist() {
