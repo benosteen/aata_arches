@@ -8,6 +8,7 @@
                     "cardid": "41a95191-2e43-11e9-a749-a4d18cec433a", 
                     "component_id": "f05e4d3a-53c1-11e8-b0ea-784f435179ea", 
                     "config": null, 
+                    "constraints": [], 
                     "cssclass": null, 
                     "description": "", 
                     "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
@@ -32,33 +33,6 @@
                 {
                     "description": null, 
                     "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "edgeid": "af07ca21-2e45-11e9-832b-a4d18cec433a", 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "name": null, 
-                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P67i_is_referred_to_by", 
-                    "rangenode_id": "af07c5fa-2e45-11e9-aa89-a4d18cec433a"
-                }, 
-                {
-                    "description": null, 
-                    "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "edgeid": "4d0befee-2e43-11e9-b4bb-a4d18cec433a", 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "name": null, 
-                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P181_has_amount", 
-                    "rangenode_id": "4d0beb8c-2e43-11e9-bde2-a4d18cec433a"
-                }, 
-                {
-                    "description": null, 
-                    "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "edgeid": "5beb4acf-2e43-11e9-8dc1-a4d18cec433a", 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "name": null, 
-                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P180_has_currency", 
-                    "rangenode_id": "5beb468f-2e43-11e9-bd61-a4d18cec433a"
-                }, 
-                {
-                    "description": null, 
-                    "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
                     "edgeid": "67285802-2e43-11e9-b948-a4d18cec433a", 
                     "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
                     "name": null, 
@@ -73,6 +47,33 @@
                     "name": null, 
                     "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type", 
                     "rangenode_id": "71bf2911-2e43-11e9-86b6-a4d18cec433a"
+                }, 
+                {
+                    "description": null, 
+                    "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "edgeid": "5beb4acf-2e43-11e9-8dc1-a4d18cec433a", 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "name": null, 
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P180_has_currency", 
+                    "rangenode_id": "5beb468f-2e43-11e9-bd61-a4d18cec433a"
+                }, 
+                {
+                    "description": null, 
+                    "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "edgeid": "af07ca21-2e45-11e9-832b-a4d18cec433a", 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "name": null, 
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P67i_is_referred_to_by", 
+                    "rangenode_id": "af07c5fa-2e45-11e9-aa89-a4d18cec433a"
+                }, 
+                {
+                    "description": null, 
+                    "domainnode_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "edgeid": "4d0befee-2e43-11e9-b4bb-a4d18cec433a", 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "name": null, 
+                    "ontologyproperty": "http://www.cidoc-crm.org/cidoc-crm/P181_has_amount", 
+                    "rangenode_id": "4d0beb8c-2e43-11e9-bde2-a4d18cec433a"
                 }
             ], 
             "functions_x_graphs": [], 
@@ -92,6 +93,74 @@
                 }
             ], 
             "nodes": [
+                {
+                    "config": null, 
+                    "datatype": "semantic", 
+                    "description": "", 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "is_collector": true, 
+                    "isrequired": false, 
+                    "issearchable": true, 
+                    "istopnode": true, 
+                    "name": "Monetary Amount", 
+                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "nodeid": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E97_Monetary_Amount", 
+                    "parentproperty": "", 
+                    "sortorder": 0
+                }, 
+                {
+                    "config": {
+                        "graphid": null
+                    }, 
+                    "datatype": "resource-instance", 
+                    "description": null, 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "is_collector": false, 
+                    "isrequired": false, 
+                    "issearchable": true, 
+                    "istopnode": false, 
+                    "name": "currency", 
+                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "nodeid": "5beb468f-2e43-11e9-bd61-a4d18cec433a", 
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E98_Currency", 
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P180_has_currency", 
+                    "sortorder": 0
+                }, 
+                {
+                    "config": null, 
+                    "datatype": "string", 
+                    "description": null, 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "is_collector": false, 
+                    "isrequired": false, 
+                    "issearchable": true, 
+                    "istopnode": false, 
+                    "name": "label", 
+                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "nodeid": "6728538f-2e43-11e9-bd87-a4d18cec433a", 
+                    "ontologyclass": "http://www.w3.org/2001/XMLSchema#string", 
+                    "parentproperty": "http://www.w3.org/2000/01/rdf-schema#label", 
+                    "sortorder": 0
+                }, 
+                {
+                    "config": {
+                        "rdmCollection": null
+                    }, 
+                    "datatype": "concept", 
+                    "description": null, 
+                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
+                    "is_collector": false, 
+                    "isrequired": false, 
+                    "issearchable": true, 
+                    "istopnode": false, 
+                    "name": "classification", 
+                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
+                    "nodeid": "71bf2911-2e43-11e9-86b6-a4d18cec433a", 
+                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type", 
+                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type", 
+                    "sortorder": 0
+                }, 
                 {
                     "config": {
                         "graphid": [
@@ -114,22 +183,6 @@
                 }, 
                 {
                     "config": null, 
-                    "datatype": "semantic", 
-                    "description": "", 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "is_collector": true, 
-                    "isrequired": false, 
-                    "issearchable": true, 
-                    "istopnode": true, 
-                    "name": "Monetary Amount", 
-                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "nodeid": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E97_Monetary_Amount", 
-                    "parentproperty": "", 
-                    "sortorder": 0
-                }, 
-                {
-                    "config": null, 
                     "datatype": "number", 
                     "description": null, 
                     "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
@@ -142,58 +195,6 @@
                     "nodeid": "4d0beb8c-2e43-11e9-bde2-a4d18cec433a", 
                     "ontologyclass": "http://www.w3.org/2000/01/rdf-schema#Literal", 
                     "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P181_has_amount", 
-                    "sortorder": 0
-                }, 
-                {
-                    "config": {
-                        "graphid": null
-                    }, 
-                    "datatype": "resource-instance", 
-                    "description": null, 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "is_collector": false, 
-                    "isrequired": false, 
-                    "issearchable": true, 
-                    "istopnode": false, 
-                    "name": "currency", 
-                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "nodeid": "5beb468f-2e43-11e9-bd61-a4d18cec433a", 
-                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E98_Currency", 
-                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P180_has_currency", 
-                    "sortorder": 0
-                }, 
-                {
-                    "config": {
-                        "rdmCollection": null
-                    }, 
-                    "datatype": "concept", 
-                    "description": null, 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "is_collector": false, 
-                    "isrequired": false, 
-                    "issearchable": true, 
-                    "istopnode": false, 
-                    "name": "classification", 
-                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "nodeid": "71bf2911-2e43-11e9-86b6-a4d18cec433a", 
-                    "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E55_Type", 
-                    "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type", 
-                    "sortorder": 0
-                }, 
-                {
-                    "config": null, 
-                    "datatype": "string", 
-                    "description": null, 
-                    "graph_id": "41a72a0c-2e43-11e9-9209-a4d18cec433a", 
-                    "is_collector": false, 
-                    "isrequired": false, 
-                    "issearchable": true, 
-                    "istopnode": false, 
-                    "name": "label", 
-                    "nodegroup_id": "41a725cc-2e43-11e9-9591-a4d18cec433a", 
-                    "nodeid": "6728538f-2e43-11e9-bd87-a4d18cec433a", 
-                    "ontologyclass": "http://www.w3.org/2001/XMLSchema#string", 
-                    "parentproperty": "http://www.w3.org/2000/01/rdf-schema#label", 
                     "sortorder": 0
                 }
             ], 
