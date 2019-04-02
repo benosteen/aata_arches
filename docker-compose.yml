@@ -10,6 +10,7 @@ services:
       volumes:
         - aata_arches-log:/arches/arches/logs
         - aata_arches-static:/static_root
+        - aata_arches-media:/web_root/arches
       environment:
         - ARCHES_VERSION=master
         - PGUSERNAME=arches
@@ -24,9 +25,10 @@ services:
         - ESHOST=elasticsearch
         - ESPORT=9200
         - ELASTICSEARCH_PREFIX=aata
-        - DJANGO_MODE=DEV
-        - DJANGO_DEBUG=True
+        - DJANGO_MODE=PROD
+        - DJANGO_DEBUG=False
         - DJANGO_REMOTE_DEBUG=False
+        - DJANGO_SECRET_KEY=_^i78p32x8oj6rf6=k6@8-@!ii!z+a5j3v)m11kt4qo0y_9r3y
         - DOMAIN_NAMES=localhost
         - TZ=PST
       ports:
@@ -140,6 +142,7 @@ services:
 
 volumes:
     aata_arches-log:
+    aata_arches-media:
     aata_arches-static:
     couchdb-data:
     couchdb-log:

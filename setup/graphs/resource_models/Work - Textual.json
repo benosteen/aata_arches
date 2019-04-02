@@ -2624,7 +2624,7 @@
             "is_editable": true, 
             "isactive": true, 
             "isresource": true, 
-            "jsonldcontext": "http://localhost:8001/media/linked-art.json", 
+            "jsonldcontext": "https://linked.art/ns/v1/linked-art.json", 
             "name": "Work - Textual", 
             "nodegroups": [
                 {
