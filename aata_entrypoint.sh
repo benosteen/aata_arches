@@ -129,12 +129,8 @@ setup_aata() {
 	                          -s ${ARCHES_ROOT}/aata_config/graphs/resource_models \
 	                          -ow=overwrite
 	echo
-
-	echo "Having to work around the broken migrations"
-	python manage.py makemigrations
+	echo "Re-running migrate"
 	run_migrations
-	python manage.py widget unregister -n iiif-widget
-	python manage.py widget unregister -n csv-chart-widget
 
 	install_yarn_components
 }
