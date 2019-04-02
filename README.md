@@ -43,6 +43,23 @@ To switch on (or off) debugging modes, please do the following:
         - DJANGO_MODE=DEV
         - DJANGO_DEBUG=True
 
+### Get a commandline on the AATA Arches container:
+
+It can be useful to get a commandline interface to the aata application container. When the stack is running, run the following. NB Once in, it is recommended to enter the application's python virtualenv as show below:
+
+    [docker-user]$ docker exec -it aata_arches /bin/bash
+    root@a84d01715b92:/web_root/arches# ls
+    CONTRIBUTING.md     arches             docker                      node_modules              setup.py
+    LICENSE.txt         arches.egg-info    docker-compose-default.yml  normal.sublime-workspace  tests
+    MANIFEST.in         arches.log         docker-compose-test.yml     ontology                  untitled.sublime-workspace
+    README.md           bandit.report.txt  export_pkg                  package-lock.json         yarn.lock
+    _pkg_181018_054737  bash_env           gunicorn_config.py          package.json
+    aata_config         cypress            manage.py                   pycallgraph.patch
+    appspec.yml         cypress.json       new_fixtures                releases
+    
+    root@a84d01715b92:/web_root/arches# . ../ENV/bin/activate
+    (ENV) root@a84d01715b92:/web_root/arches#
+
 ### Reset from scratch
 
 If the source data, models, branches or ontology files are edited, you will likely wish to rebuild from scratch to reflect these changes. Run `docker-compose down -v` to not just spin down the application stack, but to *remove* its volumes. This will DELETE anything that had been created in the application. After this, run the build and setup steps again before spinning the application back up.
