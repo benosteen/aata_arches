@@ -1376,7 +1376,7 @@
             "is_editable": true, 
             "isactive": true, 
             "isresource": true, 
-            "jsonldcontext": "http://localhost:8000/media/linked-art.json", 
+            "jsonldcontext": null, 
             "name": "Activity", 
             "nodegroups": [
                 {
