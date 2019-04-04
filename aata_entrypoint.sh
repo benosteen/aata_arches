@@ -16,6 +16,9 @@ display_help() {
 APP_FOLDER=${ARCHES_ROOT}
 PACKAGE_JSON_FOLDER=${ARCHES_ROOT}
 
+# NB set CUSTOM_SCRIPT_FOLDER to the path of any installed custom scripts that need
+# to be run before starting the server.
+
 # Read modules folder from yarn config file
 # Get string after '--install.modules-folder' -> get first word of the result 
 # -> remove line endlings -> trim quotes -> trim leading ./
@@ -58,18 +61,7 @@ activate_virtualenv() {
 
 #### Install
 
-init_aata() {
-	if db_exists; then
-		echo "Database ${PGDBNAME} already exists, skipping initialization."
-		echo ""
-	else
-		echo "Database ${PGDBNAME} does not exists yet, starting setup..."
-		setup_aata
-	fi
-}
-
-
-# Setup Postgresql and Elasticsearch
+# Setup Postgresql and Elasticsearch, and load AATA data
 setup_aata() {
 	cd_arches_root
 	activate_virtualenv
@@ -164,7 +156,6 @@ set_dev_mode() {
 	python ${ARCHES_ROOT}/setup.py develop
 }
 
-
 # Yarn
 init_yarn_components() {
 	if [[ ! -d ${YARN_MODULES_FOLDER} ]] || [[ ! "$(ls ${YARN_MODULES_FOLDER})" ]]; then
@@ -185,33 +176,6 @@ install_yarn_components() {
 	yarn install --modules-folder ${YARN_MODULES_FOLDER}
 }
 
-graphs_exist() {
-	row_count=$(psql -h ${PGHOST} -p ${PGPORT} -U postgres -d ${PGDBNAME} -Atc "SELECT COUNT(*) FROM public.graphs")
-	if [[ ${row_count} -le 3 ]]; then
-		return 1
-	else
-		return 0
-	fi
-}
-
-concepts_exist() {
-	row_count=$(psql -h ${PGHOST} -p ${PGPORT} -U postgres -d ${PGDBNAME} -Atc "SELECT COUNT(*) FROM public.concepts WHERE nodetype = 'Concept'")
-	if [[ ${row_count} -le 2 ]]; then
-		return 1
-	else
-		return 0
-	fi
-}
-
-collections_exist() {
-	row_count=$(psql -h ${PGHOST} -p ${PGPORT} -U postgres -d ${PGDBNAME} -Atc "SELECT COUNT(*) FROM public.concepts WHERE nodetype = 'Collection'")
-	if [[ ${row_count} -le 1 ]]; then
-		return 1
-	else
-		return 0
-	fi
-}
-
 import_reference_data() {
 	# Import example concept schemes
 	local rdf_file="$1"
@@ -219,27 +183,23 @@ import_reference_data() {
 	python manage.py packages -o import_reference_data -s "${rdf_file}"
 }
 
-copy_settings_local() {
-	# The settings_local.py in ${ARCHES_ROOT}/arches/ gets ignored if running manage.py from a custom Arches project instead of Arches core app
-	echo "Copying ${ARCHES_ROOT}/arches/settings_local.py to ${APP_FOLDER}/${ARCHES_PROJECT}/settings_local.py..."
-	cp ${ARCHES_ROOT}/arches/settings_local.py ${APP_FOLDER}/${ARCHES_PROJECT}/settings_local.py
-}
-
 # Allows users to add scripts that are run on startup (after this entrypoint)
 run_custom_scripts() {
-	for file in ${CUSTOM_SCRIPT_FOLDER}/*; do
-		if [[ -f ${file} ]]; then
-			echo ""
-			echo ""
-			echo "----- RUNNING CUSTUM SCRIPT: ${file} -----"
-			echo ""
-			source ${file}
-		fi
-	done
+	if [ -z "$CUSTOM_SCRIPT_FOLDER" ]
+	then
+		echo "CUSTOM_SCRIPT_FOLDER env var is not set. No custom scripts will be run."
+	else
+		for file in ${CUSTOM_SCRIPT_FOLDER}/*; do
+			if [[ -f ${file} ]]; then
+				echo ""
+				echo ""
+				echo "----- RUNNING CUSTOM SCRIPT: ${file} -----"
+				echo ""
+				source ${file}
+			fi
+		done
+	fi
 }
-
-
-
 
 #### Run
 
@@ -299,10 +259,6 @@ run_gunicorn_server() {
 
 #### Main commands
 run_aata() {
-
-	#init_aata
-
-	#init_yarn_components
 
 	if [[ "${DJANGO_MODE}" == "DEV" ]]; then
 		set_dev_mode
