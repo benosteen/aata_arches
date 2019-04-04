@@ -21,6 +21,8 @@ Once the application container has been built and the setup command run once, it
 
     `[docker-user]$ docker-compose up -d`
 
+It should be available at http://localhost or http://localhost:8000, depending on PROD/DEV configuration.
+
 - Spin down:
 
     `[docker-user]$ docker-compose down`
