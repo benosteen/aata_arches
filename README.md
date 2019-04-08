@@ -9,7 +9,13 @@ AATA is a Getty GCI project to catalogue abstracts about conservation articles. 
 Requires `docker` and `docker-compose`
 
 ### Build and Setup:
-Run these commands from the root of the repository directory, as a user with sufficient privileges to run `docker` and `docker-compose` commands:
+First, make a copy of `docker-compose-template.yml` called `docker-compose.yml`.
+
+    [docker-user]$ cp docker-compose-template.yml docker-compose.yml
+
+Open this file and change the default passwords and secret. These values are prefixed and suffixed by `$$` to make it easier to see where they are.
+
+Then, run these commands from the root of the repository directory, as a user with sufficient privileges to run `docker` and `docker-compose` commands:
 
     [docker-user]$ docker-compose build --no-cache aata_arches
     [docker-user]$ docker-compose run aata_arches setup_aata
