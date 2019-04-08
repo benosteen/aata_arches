@@ -14,21 +14,23 @@ services:
       environment:
         - ARCHES_VERSION=master
         - PGUSERNAME=arches
-        - PGPASSWORD=archespwd
+        # MUST MATCH password set in db container config below
+        - PGPASSWORD=$$CHANGEMEPGPASS$$
         - PGDBNAME=arches
         - PGHOST=db
         - PGPORT=5432
         - COUCHDB_HOST=couchdb
         - COUCHDB_PORT=5984
         - COUCHDB_USER=admin
-        - COUCHDB_PASS=password
+        # MUST MATCH password set in couchdb container config below
+        - COUCHDB_PASS=$$CHANGEMECOUCHDB$$
         - ESHOST=elasticsearch
         - ESPORT=9200
         - ELASTICSEARCH_PREFIX=aata
         - DJANGO_MODE=PROD
         - DJANGO_DEBUG=False
         - DJANGO_REMOTE_DEBUG=False
-        - DJANGO_SECRET_KEY=_^i78p32x8oj6rf6=k6@8-@!ii!z+a5j3v)m11kt4qo0y_9r3y
+        - DJANGO_SECRET_KEY=$$GENERATEANEWSECRET!$$
         - DOMAIN_NAMES=localhost
         - TZ=PST
       ports:
@@ -71,9 +73,10 @@ services:
       ports:
         - '5432:5432'
       environment:
-        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_PASSWORD=$$CHANGEME!!$$
         - PGUSERNAME=arches
-        - PGPASSWORD=archespwd
+        # MUST MATCH password set in aata_arches container config above
+        - PGPASSWORD=$$CHANGEMEPGPASS$$
         - PGDBNAME=arches
         - POSTGRES_USER=postgres
         - TZ=PST
@@ -104,7 +107,8 @@ services:
         - "5984:5984"
       environment:
         COUCHDB_USER: admin
-        COUCHDB_PASSWORD: password
+        # MUST MATCH password set in aata_arches container config above
+        COUCHDB_PASSWORD: $$CHANGEMECOUCHDB$$
       volumes:
         - couchdb-data:/usr/local/var/lib/couchdb
         - couchdb-log:/usr/local/var/log/couchdb
